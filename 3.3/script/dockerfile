@@ -1,0 +1,5 @@
+FROM python:alpine
+WORKDIR /data
+COPY data.txt /data/
+COPY script.py /data/
+CMD ["python", "script.py"]
