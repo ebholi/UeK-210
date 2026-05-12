@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo:4.2.0
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - db-network
+
+  backend:
+    build: ./backend
+    networks:
+      - db-network
+      - app-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  db-network:
+  app-network:
