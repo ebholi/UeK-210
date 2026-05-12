@@ -1,0 +1,5 @@
+services:
+  web:
+    build: ./webpage
+    ports:
+      - "8080:80"
